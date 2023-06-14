@@ -1,1 +1,0 @@
-# nowiczenkoandrzej.github.io
