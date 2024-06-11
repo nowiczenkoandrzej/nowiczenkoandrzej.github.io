@@ -1,10 +1,11 @@
 /**
-* Template Name: Avilon
-* Updated: May 30 2023 with Bootstrap v5.3.0
-* Template URL: https://bootstrapmade.com/avilon-bootstrap-landing-page-template/
+* Template Name: Bootslander
+* Template URL: https://bootstrapmade.com/bootslander-free-bootstrap-landing-page-template/
+* Updated: Mar 17 2024 with Bootstrap v5.3.3
 * Author: BootstrapMade.com
 * License: https://bootstrapmade.com/license/
 */
+
 (function() {
   "use strict";
 
@@ -160,10 +161,45 @@
   });
 
   /**
+   * Preloader
+   */
+  let preloader = select('#preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove()
+    });
+  }
+
+  /**
+   * Initiate glightbox
+   */
+  const glightbox = GLightbox({
+    selector: '.glightbox'
+  });
+
+  /**
    * Initiate gallery lightbox 
    */
   const galleryLightbox = GLightbox({
     selector: '.gallery-lightbox'
+  });
+
+  /**
+   * Testimonials slider
+   */
+  new Swiper('.testimonials-slider', {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'bullets',
+      clickable: true
+    }
   });
 
   /**
@@ -178,22 +214,9 @@
     })
   });
 
-/**
-   * Hero type effect
+  /**
+   * Initiate Pure Counter 
    */
-const typed = select('.typed')
-if (typed) {
-  let typed_strings = typed.getAttribute('data-typed-items')
-  typed_strings = typed_strings.split(',')
-  new Typed('.typed', {
-    strings: typed_strings,
-    loop: true,
-    typeSpeed: 100,
-    backSpeed: 50,
-    backDelay: 2000
-  });
-}
-
+  new PureCounter();
 
 })()
-
